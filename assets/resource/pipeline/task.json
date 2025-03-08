@@ -1,0 +1,22 @@
+{
+    "aaa":{
+        "action":"StopApp",
+        "package":"com.tencent.mobileqq"
+    },
+    "bbb":{
+        "action":"StartApp",
+        "package":"com.tencent.KiHan"
+    },
+    "ccc":{
+        "action":"StartApp",
+        "package":"com.tencent.mobileqq",
+        "post_delay":2000,
+        "next":[
+            "ddd"
+        ]
+    },
+    "ddd":{
+        "action":"StopApp",
+        "package":"com.tencent.mobileqq"
+    }
+}

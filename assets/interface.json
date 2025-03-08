@@ -1,16 +1,9 @@
 {
+    "message":"欢迎使用火影忍者自动助手MFA",
     "controller": [
         {
             "name": "安卓端",
             "type": "Adb"
-        },
-        {
-            "name": "桌面端",
-            "type": "Win32",
-            "win32": {
-                "class_regex": ".*",
-                "window_regex": "Visual Studio"
-            }
         }
     ],
     "resource": [
@@ -19,56 +12,88 @@
             "path": [
                 "{PROJECT_DIR}/resource"
             ]
-        },
-        {
-            "name": "B 服",
-            "path": [
-                "{PROJECT_DIR}/resource",
-                "{PROJECT_DIR}/resource_bilibili"
-            ]
         }
     ],
     "task": [
         {
-            "name": "普通任务",
-            "entry": "MyTask1"
+            "name": "启动游戏",
+            "entry": "检查是否登录"
         },
         {
-            "name": "选项任务",
-            "entry": "MyTask2",
-            "option": [
-                "任务选项1"
-            ]
+            "name": "领取一乐外卖和每月签到",
+            "entry": "准备领取一乐外卖加每月签到"
         },
         {
-            "name": "参数任务",
-            "entry": "MyTask3",
-            "option": [
-                "任务选项1"
-            ],
-            "pipeline_override": {}
+            "name":"领取赠送好友体力",
+            "entry":"点击好友"
+        },
+        {
+            "name":"免费铜币招财",
+            "entry":"在大厅点击铜币招财"
+        },
+        {
+            "name":"扫荡精英副本",
+            "entry":"准备扫荡精英副本"
+        },
+        {
+            "name":"扫荡装备材料",
+            "entry":"点击装备1"
+        },
+        {
+            "name":"免费招募",
+            "entry":"点击招募"
+        },
+        {
+            "name":"领取接取任务集会所",
+            "entry":"准备点击任务集会所"
+        },
+        {
+            "name":"组织祈福",
+            "entry":"准备点击组织"
+        },
+        {
+            "name":"刷决斗场每日首胜(包含领取周胜)",
+            "entry":"准备点击决斗场"
+        },
+        {
+            "name":"挑战丰饶之间",
+            "entry":"准备点击丰饶之间"
+        },
+        {
+            "name":"小队突袭(需进组织)",
+            "entry":"准备点击小队突袭"
+        },
+        {
+            "name":"每日分享",
+            "entry":"准备每日分享"
+        },
+        {
+            "name":"领取特权商店铜币",
+            "entry":"点击商城"
+        },
+        {
+            "name":"领取每日任务",
+            "entry":"点击奖励"
+        },
+        {
+            "name":"领取忍法帖任务经验和分享金币",
+            "entry":"点击忍法帖" 
+        },
+        {
+            "name":"扫荡修行之路",
+            "entry":"准备点击修行之路"
+        },
+        {
+            "name":"扫荡生存挑战",
+            "entry":"准备点击生存挑战"
+        },
+        {
+            "name":"排行榜点赞",
+            "entry":"准备点击排行榜"
+        },
+        {
+            "name":"领取V特权礼包",
+            "entry":"点击V特权"
         }
-    ],
-    "option": {
-        "任务选项1": {
-            "cases": [
-                {
-                    "name": "文本1",
-                    "pipeline_override": {
-                        "OcrTask": {
-                            "text": "文本1"
-                        }
-                    }
-                },
-                {
-                    "name": "文本2",
-                    "pipeline_override": {
-                        "OcrTask": {
-                            "text": "文本2"
-                        }
-                    }
-                }
-            ]
-        }
-    }
+    ]
 }
