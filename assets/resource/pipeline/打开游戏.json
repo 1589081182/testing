@@ -3,6 +3,8 @@
         "action":"StartApp",
         "package":"com.tencent.KiHan",
         "post_delay":60000,
+        "timeout":120000,
+        "rate_limit":5000,
         "next":[
             "打开游戏后"     
         ]
@@ -1226,7 +1228,7 @@
             10,
             10
         ],
-        "post_delay":12000,
+        "post_delay":20000,
         "next":[
             "精英副本扫荡识别到体力不足",
             "精英副本扫荡结束",
@@ -1398,7 +1400,8 @@
         "action":"Click",
         "post_delay":1000,
         "next":[
-            "点击普通招募"
+            "点击普通招募",
+            "抽卡后点击确定"
         ]
     },
     "点击普通招募":{
@@ -1500,8 +1503,11 @@
         "next":[
             "没有接取任何集会所任务",
             "领取集会所任务",
+            "集会所今天所有任务已经领完",
+            "超影特权接取集会所任务",
             "接取集会所任务",
-            "未解锁任务集会所"
+            "未解锁任务集会所",
+            "准备点击任务集会所"
         ]
     },
     "未解锁任务集会所":{
@@ -1523,6 +1529,7 @@
         "recognition":"TemplateMatch",
         "template":"没有接取任何集会所任务.png",
         "next":[
+            "超影特权接取集会所任务",
             "接取集会所任务"
         ]
     },
@@ -1563,6 +1570,7 @@
         "next":[
             "没有接取任何集会所任务",
             "领取集会所任务",
+            "超影特权接取集会所任务",
             "接取集会所任务"
         ]
     },
@@ -1639,6 +1647,8 @@
         ]
     },
     "一号位集会所任务选择忍者":{
+        "recognition":"TemplateMatch",
+        "template":"出发.png",
         "action":"DoNothing",
         "next":[
             "一号位集会所任务推荐小队",
@@ -1704,6 +1714,8 @@
         ]
     },
     "二号位集会所任务选择忍者":{
+        "recognition":"TemplateMatch",
+        "template":"出发.png",
         "action":"DoNothing",
         "next":[
             "二号位集会所任务推荐小队",
@@ -1768,6 +1780,8 @@
         ]
     },
     "三号位集会所任务选择忍者":{
+        "recognition":"TemplateMatch",
+        "template":"出发.png",
         "action":"DoNothing",
         "next":[
             "三号位集会所任务推荐小队",
@@ -1830,6 +1844,577 @@
             "退出集会所"
         ]
     },
+    "超影特权接取集会所任务":{
+        "recognition":"TemplateMatch",
+        "template":"集会所超影特权免费刷新.png",
+        "action":"DoNothing",
+        "post_delay":2000,
+        "next":[
+            "集会所今天所有任务已经领完",
+            "开始接取超影特权集会所任务"
+        ]
+    },
+    "开始接取超影特权集会所任务":{
+        "recognition":"TemplateMatch",
+        "template":"集会所超影特权免费刷新.png",
+        "next":[
+            "超影特权一号位",
+            "超影特权二号位",
+            "超影特权三号位",
+            "超影特权刷新"
+        ]
+    },
+    "超影特权一号位":{
+        "recognition":"TemplateMatch",
+        "template":"集会所神秘宝箱.png",
+        "roi":[
+            750,
+            210,
+            350,
+            110
+        ],
+        "next":[
+            "接取超影特权一号位",
+            "超影特权二号位",
+            "超影特权三号位",
+            "超影特权刷新"
+        ]
+    },
+    "接取超影特权一号位":{
+        "recognition":"TemplateMatch",
+        "template":"集会所一号位任务接取.png",
+        "roi":[
+            1120,
+            265,
+            100,
+            45
+        ],
+        "action":"Click",
+        "post_delay":1500,
+        "next":[
+            "超影特权一号位选择忍者",
+            "开始接取超影特权集会所任务"
+        ]
+    },
+    "超影特权一号位选择忍者":{
+        "recognition":"TemplateMatch",
+        "template":"出发.png",
+        "next":[
+            "超影特权一号位推荐小队",
+            "超影特权一号位单人"
+            
+        ]
+    },
+    "超影特权一号位推荐小队":{
+        "recognition":"TemplateMatch",
+        "template":"集会所任务推荐小队.png",
+        "action":"Click",
+        "post_delay":1000,
+        "next":[
+            "超影特权一号位点击出发"
+        ]
+    },
+    "超影特权一号位单人":{
+        "recognition":"TemplateMatch",
+        "template":"集会所任务推荐小队.png",
+        "inverse":true,
+        "action":"Click",
+        "target":[
+            875,
+            155,
+            10,
+            10
+        ],
+        "post_delay":1000,
+        "next":[
+            "超影特权一号位点击出发"
+        ]
+    },
+    "超影特权一号位点击出发":{
+        "recognition":"TemplateMatch",
+        "template":"出发.png",
+        "action":"Click",
+        "target":[
+            1170,
+            630,
+            10,
+            10
+        ],
+        "post_delay":1500,
+        "next":[
+            "超影特权二号位",
+            "超影特权三号位",
+            "集会所今天所有任务已经领完",
+            "超影特权刷新",
+            "超影特权一号位未成功接取任务"
+        ]
+    },
+    "超影特权一号位未成功接取任务":{
+        "recognition":"TemplateMatch",
+        "template":"出发.png",
+        "action":"Click",
+        "post_delay":1000,
+        "target":[
+            140,
+            673,
+            10,
+            10
+        ],
+        "next":[
+            "超影特权二号位",
+            "超影特权三号位",
+            "超影特权刷新"
+        ]
+    },
+    "超影特权二号位":{
+        "recognition":"TemplateMatch",
+        "template":"集会所神秘宝箱.png",
+        "roi":[
+            750,
+            325,
+            350,
+            110
+        ],
+        "next":[
+            "接取超影特权二号位",
+            "超影特权三号位",
+            "超影特权刷新"
+        ]
+    },
+    "接取超影特权二号位":{
+        "recognition":"TemplateMatch",
+        "template":"集会所二号位任务接取.png",
+        "roi":[
+            1120,
+            375,
+            100,
+            45
+        ],
+        "action":"Click",
+        "post_delay":1500,
+        "next":[
+            "超影特权二号位选择忍者",
+            "开始接取超影特权集会所任务"
+        ]
+    },
+    "超影特权二号位选择忍者":{
+        "recognition":"TemplateMatch",
+        "template":"出发.png",
+        "next":[
+            "超影特权二号位推荐小队",
+            "开始接取超影特权集会所任务",
+            "超影特权二号位单人"
+        ]
+    },
+    "超影特权二号位推荐小队":{
+        "recognition":"TemplateMatch",
+        "template":"集会所任务推荐小队.png",
+        "action":"Click",
+        "post_delay":1000,
+        "next":[
+            "超影特权二号位点击出发"
+        ]
+    },
+    "超影特权二号位单人":{
+        "recognition":"TemplateMatch",
+        "template":"集会所任务推荐小队.png",
+        "inverse":true,
+        "action":"Click",
+        "target":[
+            875,
+            155,
+            10,
+            10
+        ],
+        "post_delay":1000,
+        "next":[
+            "超影特权二号位点击出发"
+        ]
+    },
+    "超影特权二号位点击出发":{
+        "recognition":"TemplateMatch",
+        "template":"出发.png",
+        "action":"Click",
+        "target":[
+            1170,
+            630,
+            10,
+            10
+        ],
+        "post_delay":1500,
+        "next":[
+            "超影特权三号位",
+            "集会所今天所有任务已经领完",
+            "超影特权刷新",
+            "超影特权二号位未成功接取任务"
+        ]
+    },
+    "超影特权二号位未成功接取任务":{
+        "recognition":"TemplateMatch",
+        "template":"出发.png",
+        "action":"Click",
+        "post_delay":1000,
+        "target":[
+            140,
+            673,
+            10,
+            10
+        ],
+        "next":[
+            "超影特权三号位",
+            "超影特权刷新"
+        ]
+    },
+    "超影特权三号位":{
+        "recognition":"TemplateMatch",
+        "template":"集会所神秘宝箱.png",
+        "roi":[
+            750,
+            435,
+            350,
+            110
+        ],
+        "next":[
+            "接取超影特权三号位",
+            "超影特权刷新"
+        ]
+    },
+    "接取超影特权三号位":{
+        "recognition":"TemplateMatch",
+        "template":"集会所三号位任务接取.png",
+        "roi":[
+            1120,
+            488,
+            100,
+            45
+        ],
+        "action":"Click",
+        "post_delay":1500,
+        "next":[
+            "超影特权三号位选择忍者",
+            "开始接取超影特权集会所任务"
+        ]
+    },
+    "超影特权三号位选择忍者":{
+        "recognition":"TemplateMatch",
+        "template":"出发.png",
+        "next":[
+            "超影特权三号位推荐小队",
+            "超影特权三号位单人"
+        ]
+    },
+    "超影特权三号位推荐小队":{
+        "recognition":"TemplateMatch",
+        "template":"集会所任务推荐小队.png",
+        "action":"Click",
+        "post_delay":1000,
+        "next":[
+            "超影特权三号位点击出发"
+        ]
+    },
+    "超影特权三号位单人":{
+        "recognition":"TemplateMatch",
+        "template":"集会所任务推荐小队.png",
+        "inverse":true,
+        "action":"Click",
+        "target":[
+            875,
+            155,
+            10,
+            10
+        ],
+        "post_delay":1000,
+        "next":[
+            "超影特权三号位点击出发"
+        ]
+    },
+    "超影特权三号位点击出发":{
+        "recognition":"TemplateMatch",
+        "template":"出发.png",
+        "action":"Click",
+        "target":[
+            1170,
+            630,
+            10,
+            10
+        ],
+        "post_delay":1500,
+        "next":[
+            "集会所今天所有任务已经领完",
+            "超影特权刷新",
+            "超影特权三号位未成功接取任务"
+        ]
+    },
+    "超影特权三号位未成功接取任务":{
+        "recognition":"TemplateMatch",
+        "template":"出发.png",
+        "action":"Click",
+        "post_delay":1000,
+        "target":[
+            140,
+            673,
+            10,
+            10
+        ],
+        "next":[
+            "超影特权刷新"
+        ]
+    },
+    "超影特权准备刷新":{
+        "recognition":"TemplateMatch",
+        "template":"集会所标识.png",
+        "next":[
+            "刷新次数等于11",
+            "刷新次数等于10",
+            "刷新次数等于9",
+            "超影特权刷新"
+        ]
+    },
+    "刷新次数等于11":{
+        "recognition":"OCR",
+        "expected":"11",
+        "roi":[
+            1004,
+            610,
+            36,
+            40
+        ],
+        "next":[
+            "可接受任务等于9",
+            "可接受任务等于8",
+            "可接受任务等于7",
+            "超影特权刷新"
+        ]
+    },
+    "刷新次数等于10":{
+        "recognition":"OCR",
+        "expected":"10",
+        "roi":[
+            1004,
+            610,
+            36,
+            40
+        ],
+        "next":[
+            "可接受任务等于6",
+            "可接受任务等于5",
+            "可接受任务等于4",
+            "超影特权刷新"
+        ]
+    },
+    "刷新次数等于9":{
+        "recognition":"OCR",
+        "expected":"9",
+        "roi":[
+            1004,
+            610,
+            36,
+            40
+        ],
+        "next":[
+            "可接受任务等于3",
+            "可接受任务等于2",
+            "可接受任务等于1",
+            "超影特权刷新"
+        ]
+    },
+    "可接受任务等于9":{
+        "recognition":"OCR",
+        "expected":"9",
+        "roi":[
+            1002,
+            645,
+            28,
+            35
+        ],
+        "next":[
+            "无差别接取集会所任务"
+        ]
+    },
+    "可接受任务等于8":{
+        "recognition":"OCR",
+        "expected":"8",
+        "roi":[
+            1002,
+            645,
+            28,
+            35
+        ],
+        "next":[
+            "无差别接取集会所任务"
+        ]
+    },
+    "可接受任务等于7":{
+        "recognition":"OCR",
+        "expected":"7",
+        "roi":[
+            1002,
+            645,
+            28,
+            35
+        ],
+        "next":[
+            "无差别接取集会所任务"
+        ]
+    },
+    "可接受任务等于6":{
+        "recognition":"OCR",
+        "expected":"6",
+        "roi":[
+            1002,
+            645,
+            28,
+            35
+        ],
+        "next":[
+            "无差别接取集会所任务"
+        ]
+    },
+    "可接受任务等于5":{
+        "recognition":"OCR",
+        "expected":"5",
+        "roi":[
+            1002,
+            645,
+            28,
+            35
+        ],
+        "next":[
+            "无差别接取集会所任务"
+        ]
+    },
+    "可接受任务等于4":{
+        "recognition":"OCR",
+        "expected":"4",
+        "roi":[
+            1002,
+            645,
+            28,
+            35
+        ],
+        "next":[
+            "无差别接取集会所任务"
+        ]
+    },
+    "可接受任务等于3":{
+        "recognition":"OCR",
+        "expected":"3",
+        "roi":[
+            1002,
+            645,
+            28,
+            35
+        ],
+        "next":[
+            "无差别接取集会所任务"
+        ]
+    },
+    "可接受任务等于2":{
+        "recognition":"OCR",
+        "expected":"2",
+        "roi":[
+            1002,
+            645,
+            28,
+            35
+        ],
+        "next":[
+            "无差别接取集会所任务"
+        ]
+    },
+    "可接受任务等于1":{
+        "recognition":"OCR",
+        "expected":"1",
+        "roi":[
+            1002,
+            645,
+            28,
+            35
+        ],
+        "next":[
+            "无差别接取集会所任务"
+        ]
+    },
+    "无差别接取集会所任务":{
+        "recognition":"TemplateMatch",
+        "template":"集会所三号位任务接取.png",
+        "action":"Click",
+        "post_delay":2000,
+        "next":[
+            "集会所无差别选择忍者",
+            "开始接取超影特权集会所任务"
+        ]
+    },
+    "集会所无差别选择忍者":{
+        "recognition":"TemplateMatch",
+        "template":"出发.png",
+        "next":[
+            "集会所无差别推荐小队",
+            "集会所无差别单人"
+        ]
+    },
+    "集会所无差别推荐小队":{
+        "recognition":"TemplateMatch",
+        "template":"集会所任务推荐小队.png",
+        "action":"Click",
+        "post_delay":1000,
+        "next":[
+            "集会所无差别点击出发"
+        ]
+    },
+    "集会所无差别单人":{
+        "recognition":"TemplateMatch",
+        "template":"集会所任务推荐小队.png",
+        "inverse":true,
+        "action":"Click",
+        "target":[
+            875,
+            155,
+            10,
+            10
+        ],
+        "post_delay":1000,
+        "next":[
+            "集会所无差别点击出发"
+        ]
+    },
+    "集会所无差别点击出发":{
+        "recognition":"TemplateMatch",
+        "template":"出发.png",
+        "action":"Click",
+        "post_delay":2000,
+        "next":[
+            "无差别接取集会所任务",
+            "无差别接取任务失败",
+            "超影特权刷新"
+        ]
+    },
+    "无差别接取任务失败":{
+        "recognition":"TemplateMatch",
+        "template":"出发.png"
+    },
+    "超影特权刷新":{
+        "recognition":"TemplateMatch",
+        "template":"集会所超影特权免费刷新.png",
+        "action":"Click",
+        "post_delay":3000,
+        "next":[
+            "超影特权接取集会所任务"
+        ]
+    },
+    "集会所今天所有任务已经领完":{
+        "recognition":"OCR",
+        "expected":"今天所有任务已经领完",
+        "roi":[
+            520,
+            200,
+            720,
+            390
+        ],
+        "next":[
+            "退出集会所"
+        ]
+    },
     "退出集会所":{
         "recognition":"TemplateMatch",
         "template":"集会所标识.png",
@@ -1876,7 +2461,8 @@
         "next":[
             "点击组织玩法",
             "未加入组织",
-            "未解锁组织"
+            "未解锁组织",
+            "准备点击组织"
         ]
     },
     "未解锁组织":{
@@ -2420,7 +3006,8 @@
         ],
         "post_delay":2000,
         "next":[
-            "检查决斗任务"
+            "检查决斗任务",
+            "查看决斗任务"
         ]
     },
     "检查决斗任务":{
@@ -2688,8 +3275,8 @@
         "template":"决斗任务界面标识.png",
         "action":"Click",
         "target":[
-            1240,
-            190,
+            180,
+            570,
             10,
             10
         ],
@@ -2725,7 +3312,8 @@
         ],
         "post_delay":2000,
         "next":[
-            "退出决斗场"
+            "退出决斗场",
+            "从忍术对战退出至决斗场"
         ]
     },
     "退出决斗场":{
@@ -2738,7 +3326,7 @@
             10,
             10
         ],
-        "post_delay":2500,
+        "post_delay":3500,
         "next":[
             "大厅待机中",
             "退出决斗场"
@@ -2756,6 +3344,22 @@
         ],
         "duration":600,
         "post_delay":800,
+        "next":[
+            "准备点击丰饶之间1"
+        ]
+    },
+    "准备点击丰饶之间1":{
+        "recognition":"TemplateMatch",
+        "template":"大厅标识.png",
+        "action":"Swipe",
+        "begin":[
+            1000,260,10,10
+        ],
+        "end":[
+            230,260,10,10
+        ],
+        "duration":600,
+        "post_delay":1500,
         "next":[
             "点击丰饶之间",
             "点击丰饶之间后"
@@ -3264,7 +3868,7 @@
         "next":[
             "小队突袭完成标识1",
             "今日已完成小队突袭",
-            "点击组织助战1"
+            "点击组织助战"
         ]
     },
     "小队突袭完成标识1":{
@@ -3272,15 +3876,15 @@
         "template":"小队突袭完成标识.png",
         "action":"Click",
         "target":[
-            1090,
-            170,
+            315,
+            165,
             10,
             10
         ],
         "post_delay":8000,
         "next":[
             "今日已完成小队突袭",
-            "点击组织助战1"
+            "点击组织助战"
         ]
     },
     "今日已完成小队突袭":{
@@ -3599,7 +4203,7 @@
         "recognition":"TemplateMatch",
         "template":"忍法帖标识.png",
         "action":"Click",
-        "post_delay":2000,
+        "post_delay":3000,
         "timeout":60000,
         "next":[
             "每周分享忍法帖",
