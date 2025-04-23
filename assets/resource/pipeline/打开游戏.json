@@ -3936,7 +3936,7 @@
         "recognition":"TemplateMatch",
         "template":"每日分享.png",
         "action":"Click",
-        "post_delay":3500,
+        "post_delay":4000,
         "next":[
             "点击发给好友",
             "点击每日分享"
@@ -3946,10 +3946,11 @@
         "recognition":"TemplateMatch",
         "template":"发给好友.png",
         "action":"Click",
-        "post_delay":4000,
+        "post_delay":5000,
         "next":[
             "分享后成功回到游戏2",
-            "关闭QQ"
+            "关闭QQ",
+            "点击发给好友"
         ]
     },
     "关闭QQ":{
