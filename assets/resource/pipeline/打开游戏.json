@@ -2657,6 +2657,126 @@
         ],
         "post_delay":1500,
         "next":[
+            "识别昨日祈福",
+            "退出组织祈福"
+        ]
+    },
+    "识别昨日祈福":{
+        "recognition":"TemplateMatch",
+        "template":"昨日祈福.png",
+        "roi":[
+            350,
+            130,
+            150,
+            120
+        ],
+        "action":"Click",
+        "post_delay":3000,
+        "next":[
+            "昨日祈福11"
+        ]
+    },
+    "昨日祈福11":{
+        "recognition":"OCR",
+        "expected":"昨日祈福奖励",
+        "roi":[
+            520,
+            105,
+            240,
+            65
+        ],
+        "action":"Click",
+        "target":[
+            810,
+            275,
+            10,
+            10
+        ],
+        "next":[
+            "昨日祈福12"
+        ]
+    },
+    "昨日祈福12":{
+        "recognition":"TemplateMatch",
+        "template":"昨日祈福界面.png",
+        "action":"Click",
+        "target":[
+            810,
+            275,
+            10,
+            10
+        ],
+        "next":[
+            "昨日祈福21"
+        ]
+    },
+    "昨日祈福21":{
+        "recognition":"TemplateMatch",
+        "template":"昨日祈福界面.png",
+        "action":"Click",
+        "target":[
+            810,
+            425,
+            10,
+            10
+        ],
+        "next":[
+            "昨日祈福22"
+        ]
+    },
+    "昨日祈福22":{
+        "recognition":"TemplateMatch",
+        "template":"昨日祈福界面.png",
+        "action":"Click",
+        "target":[
+            810,
+            425,
+            10,
+            10
+        ],
+        "next":[
+            "昨日祈福31"
+        ]
+    },
+    "昨日祈福31":{
+        "recognition":"TemplateMatch",
+        "template":"昨日祈福界面.png",
+        "action":"Click",
+        "target":[
+            810,
+            575,
+            10,
+            10
+        ],
+        "next":[
+            "昨日祈福32"
+        ]
+    },
+    "昨日祈福32":{
+        "recognition":"TemplateMatch",
+        "template":"昨日祈福界面.png",
+        "action":"Click",
+        "target":[
+            810,
+            575,
+            10,
+            10
+        ],
+        "next":[
+            "退出昨日祈福"
+        ]
+    },
+    "退出昨日祈福":{
+        "recognition":"TemplateMatch",
+        "template":"昨日祈福界面.png",
+        "action":"Click",
+        "target":[
+            950,
+            95,
+            10,
+            10
+        ],
+        "next":[
             "退出组织祈福"
         ]
     },
@@ -2836,7 +2956,20 @@
         "rate_limit":2000,
         "next":[
             "普攻",
-            "开始忍术对战"
+            "开始忍术对战",
+            "对手离开了游戏"
+        ]
+    },
+    "对手离开了游戏":{
+        "recognition":"TemplateMatch",
+        "template":"确定对手离开了游戏.png",
+        "action":"Click",
+        "post_delay":8000,
+        "pre_delay":2000,
+        "next":[
+            "开始忍术对战",
+            "对手离开了游戏",
+            "普攻"
         ]
     },
     "普攻":{
@@ -5249,5 +5382,41 @@
             "/c",
             "msg * /time:5 只要命令仍在，FAA 永不停歇"
         ]
-    }
+    },
+  "Start": {
+    "next": [
+        "OCR_Read"
+    ]
+  },
+  "OCR_Read": {
+    "recognition": "OCR",
+    "action": "DoNothing",
+    "next": ["Extract_Numbers"]
+  },
+  "Extract_Numbers": {
+    "recognition": "DirectHit",
+    "action": "Custom",
+    "custom_action": "ExtractAndStoreNumbers",
+    "next": ["Compare_Greater", "Compare_LessEqual"]
+  },
+  "Compare_Greater": {
+    "recognition": "Custom",
+    "custom_recognition": "CheckAGreaterB",
+    "action": "Command",
+    "exec": "notify.exe",
+    "args": [
+      "第一个数字 ({{a}}) 大于第二个数字 ({{b}})"
+    ],
+    "next": []
+  },
+  "Compare_LessEqual": {
+    "recognition": "Custom",
+    "custom_recognition": "CheckALessEqualB",
+    "action": "Command",
+    "exec": "notify.exe",
+    "args": [
+      "第二个数字 ({{b}}) 大于或等于第一个数字 ({{a}})"
+    ],
+    "next": []
+  }
 }
