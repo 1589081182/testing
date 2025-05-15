@@ -2686,6 +2686,7 @@
             65
         ],
         "action":"Click",
+        "post_delay":3000,
         "target":[
             810,
             275,
@@ -2697,9 +2698,16 @@
         ]
     },
     "昨日祈福12":{
-        "recognition":"TemplateMatch",
-        "template":"昨日祈福界面.png",
+        "recognition":"OCR",
+        "expected":"昨日祈福奖励",
+        "roi":[
+            520,
+            105,
+            240,
+            65
+        ],
         "action":"Click",
+        "post_delay":3000,
         "target":[
             810,
             275,
@@ -2711,9 +2719,16 @@
         ]
     },
     "昨日祈福21":{
-        "recognition":"TemplateMatch",
-        "template":"昨日祈福界面.png",
+        "recognition":"OCR",
+        "expected":"昨日祈福奖励",
+        "roi":[
+            520,
+            105,
+            240,
+            65
+        ],
         "action":"Click",
+        "post_delay":3000,
         "target":[
             810,
             425,
@@ -2725,9 +2740,16 @@
         ]
     },
     "昨日祈福22":{
-        "recognition":"TemplateMatch",
-        "template":"昨日祈福界面.png",
+        "recognition":"OCR",
+        "expected":"昨日祈福奖励",
+        "roi":[
+            520,
+            105,
+            240,
+            65
+        ],
         "action":"Click",
+        "post_delay":3000,
         "target":[
             810,
             425,
@@ -2739,9 +2761,16 @@
         ]
     },
     "昨日祈福31":{
-        "recognition":"TemplateMatch",
-        "template":"昨日祈福界面.png",
+        "recognition":"OCR",
+        "expected":"昨日祈福奖励",
+        "roi":[
+            520,
+            105,
+            240,
+            65
+        ],
         "action":"Click",
+        "post_delay":3000,
         "target":[
             810,
             575,
@@ -2753,9 +2782,16 @@
         ]
     },
     "昨日祈福32":{
-        "recognition":"TemplateMatch",
-        "template":"昨日祈福界面.png",
+        "recognition":"OCR",
+        "expected":"昨日祈福奖励",
+        "roi":[
+            520,
+            105,
+            240,
+            65
+        ],
         "action":"Click",
+        "post_delay":3000,
         "target":[
             810,
             575,
@@ -2767,8 +2803,14 @@
         ]
     },
     "退出昨日祈福":{
-        "recognition":"TemplateMatch",
-        "template":"昨日祈福界面.png",
+        "recognition":"OCR",
+        "expected":"昨日祈福奖励",
+        "roi":[
+            520,
+            105,
+            240,
+            65
+        ],
         "action":"Click",
         "target":[
             950,
