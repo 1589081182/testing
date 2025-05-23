@@ -4571,7 +4571,7 @@
     },
     "领取周活跃一1":{
         "recognition":"OCR",
-        "expected":"本周活跃度",
+        "expected":"活跃度",
         "roi":[
             375,
             150,
@@ -4605,7 +4605,7 @@
     },
     "领取周活跃二1":{
         "recognition":"OCR",
-        "expected":"本周活跃度",
+        "expected":"活跃度",
         "roi":[
             375,
             150,
@@ -4639,7 +4639,7 @@
     },
     "领取周活跃三1":{
         "recognition":"OCR",
-        "expected":"本周活跃度",
+        "expected":"活跃度",
         "roi":[
             375,
             150,
@@ -4673,7 +4673,7 @@
     },
     "领取周活跃四1":{
         "recognition":"OCR",
-        "expected":"本周活跃度",
+        "expected":"活跃度",
         "roi":[
             375,
             150,
@@ -4707,7 +4707,7 @@
     },
     "领取周活跃五1":{
         "recognition":"OCR",
-        "expected":"本周活跃度",
+        "expected":"活跃度",
         "roi":[
             375,
             150,
