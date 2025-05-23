@@ -4788,7 +4788,7 @@
     },
     "退出忍法帖":{
         "recognition":"OCR",
-        "expected":"任务时间",
+        "expected":"时间",
         "roi":[
             260,
             670,
