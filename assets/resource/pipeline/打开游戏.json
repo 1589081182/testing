@@ -2,6 +2,14 @@
     "打开游戏":{
         "action":"StartApp",
         "package":"com.tencent.KiHan",
+        "post_delay":1000,
+        "next":[
+            "打开游戏2"     
+        ]
+    },
+    "打开游戏2":{
+        "action":"StartApp",
+        "package":"com.tencent.KiHan",
         "post_delay":60000,
         "timeout":120000,
         "rate_limit":5000,
@@ -72,7 +80,7 @@
         "recognition":"TemplateMatch",
         "template":"开始游戏.png",
         "action":"Click",
-        "post_delay":30000,
+        "post_delay":40000,
         "next":[
             "登录成功"
         ]
@@ -1223,14 +1231,15 @@
     "加速精英副本扫荡":{
         "action":"Click",
         "target":[
-            180,
-            120,
+            420,
+            220,
             10,
             10
         ],
         "post_delay":20000,
         "next":[
             "精英副本扫荡识别到体力不足",
+            "精英副本扫荡识别到忍者满星",
             "精英副本扫荡结束",
             "扫荡上次扫荡副本"
         ]
@@ -1270,6 +1279,28 @@
         "next":[
             "退出精英副本扫荡1"
         ]
+    },
+    "精英副本扫荡识别到忍者满星":{
+        "recognition":"OCR",
+        "expected":"忍者碎片将",
+        "roi":[
+            370,
+            250,
+            530,
+            150
+        ],
+        "action":"Click",
+        "target":[
+            520,
+            450,
+            10,
+            10
+        ],
+        "post_delay":300,
+        "next":[
+            "加速精英副本扫荡"
+        ]
+
     },
     "退出精英副本扫荡1":{
        "action":"Click",
@@ -1494,7 +1525,7 @@
         "template":"大厅标识.png",
         "action":"Click",
         "target":[
-            510,
+            560,
             475,
             10,
             10
@@ -3543,13 +3574,21 @@
     "点击丰饶之间":{
         "recognition":"TemplateMatch",
         "template":"大厅标识.png",
-        "action":"Click",
-        "target":[
-            335,
-            425,
-            10,
-            10
+        "post_delay":2000,
+        "next":[
+            "点击丰饶之间1"
+        ]
+    },
+    "点击丰饶之间1":{
+        "recognition":"OCR",
+        "expected":"丰饶之间",
+        "roi":[
+            170,
+            100,
+            900,
+            370
         ],
+        "action":"Click",
         "post_delay":2000,
         "next":[
             "点击丰饶之间后",
@@ -3767,14 +3806,28 @@
     "点击小队突袭":{
         "recognition":"TemplateMatch",
         "template":"大厅标识.png",
-        "action":"Click",
         "target":[
-            800,
-            260,
+            920,
+            210,
             10,
             10
         ],
+        "post_delay":1500,
+        "next":[
+            "点击小队突袭1"
+        ]
+    },
+    "点击小队突袭1":{
+        "recognition":"OCR",
+        "expected":"小队突袭",
+        "roi":[
+            170,
+            100,
+            900,
+            370
+        ],
         "post_delay":3000,
+        "action":"Click",
         "next":[
             "今日已完成小队突袭",
             "点击组织助战",
@@ -3864,8 +3917,7 @@
         "next":[
             "小队突袭完成标识",
             "今日已完成小队突袭",
-            "点击组织助战",
-            "邀请组织2"
+            "点击组织助战"
         ]
     },
     "小队突袭完成标识":{
@@ -3896,21 +3948,7 @@
         ],
         "post_delay":3000,
         "next":[
-            "小队突袭点击出战2"
-        ]
-    },
-    "小队突袭点击出战2":{
-        "recognition":"TemplateMatch",
-        "template":"组织助战界面标识.png",
-        "action":"Click",
-        "post_delay":5000,
-        "timeout":300000,
-        "rate_limit":20000,
-        "next":[
-            "小队突袭完成标识",
-            "今日已完成小队突袭",
-            "点击组织助战",
-            "邀请组织3"
+            "小队突袭点击出战1"
         ]
     },
     "邀请组织3":{
@@ -3925,21 +3963,7 @@
         ],
         "post_delay":3000,
         "next":[
-            "小队突袭点击出战3"
-        ]
-    },
-    "小队突袭点击出战3":{
-        "recognition":"TemplateMatch",
-        "template":"组织助战界面标识.png",
-        "action":"Click",
-        "post_delay":5000,
-        "timeout":300000,
-        "rate_limit":20000,
-        "next":[
-            "小队突袭完成标识",
-            "今日已完成小队突袭",
-            "点击组织助战",
-            "邀请组织4"
+            "小队突袭点击出战1"
         ]
     },
     "邀请组织4":{
@@ -3954,21 +3978,7 @@
         ],
         "post_delay":3000,
         "next":[
-            "小队突袭点击出战4"
-        ]
-    },
-    "小队突袭点击出战4":{
-        "recognition":"TemplateMatch",
-        "template":"组织助战界面标识.png",
-        "action":"Click",
-        "post_delay":5000,
-        "timeout":300000,
-        "rate_limit":20000,
-        "next":[
-            "小队突袭完成标识",
-            "今日已完成小队突袭",
-            "点击组织助战",
-            "邀请组织5"
+            "小队突袭点击出战1"
         ]
     },
     "邀请组织5":{
@@ -3983,21 +3993,7 @@
         ],
         "post_delay":3000,
         "next":[
-            "小队突袭点击出战5"
-        ]
-    },
-    "小队突袭点击出战5":{
-        "recognition":"TemplateMatch",
-        "template":"组织助战界面标识.png",
-        "action":"Click",
-        "post_delay":5000,
-        "timeout":300000,
-        "rate_limit":20000,
-        "next":[
-            "小队突袭完成标识",
-            "今日已完成小队突袭",
-            "点击组织助战",
-            "没有可邀请组织直接出战小队突袭"
+            "小队突袭点击出战1"
         ]
     },
     "没有可邀请组织直接出战小队突袭":{
@@ -5424,41 +5420,5 @@
             "/c",
             "msg * /time:5 只要命令仍在，FAA 永不停歇"
         ]
-    },
-  "Start": {
-    "next": [
-        "OCR_Read"
-    ]
-  },
-  "OCR_Read": {
-    "recognition": "OCR",
-    "action": "DoNothing",
-    "next": ["Extract_Numbers"]
-  },
-  "Extract_Numbers": {
-    "recognition": "DirectHit",
-    "action": "Custom",
-    "custom_action": "ExtractAndStoreNumbers",
-    "next": ["Compare_Greater", "Compare_LessEqual"]
-  },
-  "Compare_Greater": {
-    "recognition": "Custom",
-    "custom_recognition": "CheckAGreaterB",
-    "action": "Command",
-    "exec": "notify.exe",
-    "args": [
-      "第一个数字 ({{a}}) 大于第二个数字 ({{b}})"
-    ],
-    "next": []
-  },
-  "Compare_LessEqual": {
-    "recognition": "Custom",
-    "custom_recognition": "CheckALessEqualB",
-    "action": "Command",
-    "exec": "notify.exe",
-    "args": [
-      "第二个数字 ({{b}}) 大于或等于第一个数字 ({{a}})"
-    ],
-    "next": []
-  }
+    }
 }
