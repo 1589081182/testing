@@ -3889,12 +3889,21 @@
         "action":"Click",
         "post_delay":3000,
         "next":[
-            "邀请组织1"
+            "小队突袭准备邀请组织"
         ]
     },
-    "邀请组织1":{
+    "小队突袭准备邀请组织":{
         "recognition":"TemplateMatch",
         "template":"组织助战界面标识.png",
+        "post_delay":2000,
+        "next":[
+            "邀请组织",
+            "没有可邀请组织直接出战小队突袭"
+        ]
+    },
+    "邀请组织":{
+        "recognition":"TemplateMatch",
+        "template":"小队突袭邀请组织标识.png",
         "action":"Click",
         "target":[
             395,
@@ -3934,66 +3943,6 @@
         "next":[
             "今日已完成小队突袭",
             "点击组织助战"
-        ]
-    },
-    "邀请组织2":{
-        "recognition":"TemplateMatch",
-        "template":"组织助战界面标识.png",
-        "action":"Click",
-        "target":[
-            395,
-            300,
-            10,
-            10
-        ],
-        "post_delay":3000,
-        "next":[
-            "小队突袭点击出战1"
-        ]
-    },
-    "邀请组织3":{
-        "recognition":"TemplateMatch",
-        "template":"组织助战界面标识.png",
-        "action":"Click",
-        "target":[
-            395,
-            400,
-            10,
-            10
-        ],
-        "post_delay":3000,
-        "next":[
-            "小队突袭点击出战1"
-        ]
-    },
-    "邀请组织4":{
-        "recognition":"TemplateMatch",
-        "template":"组织助战界面标识.png",
-        "action":"Click",
-        "target":[
-            395,
-            490,
-            10,
-            10
-        ],
-        "post_delay":3000,
-        "next":[
-            "小队突袭点击出战1"
-        ]
-    },
-    "邀请组织5":{
-        "recognition":"TemplateMatch",
-        "template":"组织助战界面标识.png",
-        "action":"Click",
-        "target":[
-            395,
-            580,
-            10,
-            10
-        ],
-        "post_delay":3000,
-        "next":[
-            "小队突袭点击出战1"
         ]
     },
     "没有可邀请组织直接出战小队突袭":{
@@ -4375,13 +4324,14 @@
         "recognition":"TemplateMatch",
         "template":"忍法帖标识.png",
         "action":"Click",
-        "post_delay":3000,
+        "post_delay":3500,
         "timeout":60000,
         "next":[
-            "每周分享忍法帖",
+            "点击忍法帖周任务",
             "关闭购买忍法帖弹窗",
             "确定恭喜解锁忍法帖",
-            "点击任意位置进入忍法帖"
+            "点击任意位置进入忍法帖",
+            "点击忍法帖"
         ]
     },
     "点击任意位置进入忍法帖":{
@@ -4390,60 +4340,8 @@
         "action":"Click",
         "post_delay":3000,
         "next":[
-            "每周分享忍法帖",
             "关闭购买忍法帖弹窗",
             "确定恭喜解锁忍法帖"
-        ]
-    },
-    "每周分享忍法帖":{
-        "recognition":"TemplateMatch",
-        "template":"忍法帖分享标识.png",
-        "action":"Click",
-        "post_delay":2000,
-        "next":[
-            "忍法帖分享发给好友",
-            "确定恭喜解锁忍法帖",
-            "每周分享忍法帖"
-        ]
-    },
-    "忍法帖分享发给好友":{
-        "recognition":"TemplateMatch",
-        "template":"忍法帖分享发给好友.png",
-        "action":"Click",
-        "post_delay":5000,
-        "next":[
-            "忍法帖分享后关闭QQ",
-            "忍法帖分享发给好友",
-            "忍法帖分享后成功回到游戏1"
-        ]
-    },
-    "忍法帖分享后关闭QQ":{
-        "recognition":"TemplateMatch",
-        "template":"忍法帖分享发给好友.png",
-        "inverse":true,
-        "action":"StopApp",
-        "package":"com.tencent.mobileqq",
-        "post_delay":3000,
-        "next":[
-            "忍法帖分享后成功回到游戏1",
-            "点击忍法帖周任务",
-            "忍法帖分享后关闭QQ"
-        ]
-    },
-    "忍法帖分享后成功回到游戏1":{
-        "recognition":"TemplateMatch",
-        "template":"忍法帖分享后成功回到游戏1.png",
-        "action":"Click",
-        "target":[
-            800,
-            650,
-            10,
-            10
-        ],
-        "post_delay":3500,
-        "next":[
-            "点击忍法帖周任务",
-            "忍法帖分享后成功回到游戏1"
         ]
     },
     "关闭购买忍法帖弹窗":{
@@ -4459,7 +4357,7 @@
         "post_delay":2000,
         "next":[
             "确定恭喜解锁忍法帖",
-            "每周分享忍法帖"
+            "点击忍法帖周任务"
         ]
     },
     "确定恭喜解锁忍法帖":{
@@ -4468,7 +4366,7 @@
         "action":"Click",
         "post_delay":2000,
         "next":[
-            "每周分享忍法帖",
+            "点击忍法帖周任务",
             "确定恭喜解锁忍法帖"
         ]
     },
@@ -4476,13 +4374,13 @@
         "recognition":"OCR",
         "expected":"周任务",
         "roi":[
-            490,
-            92,
-            118,
-            38
+            30,
+            120,
+            130,
+            500
         ],
         "action":"Click",
-        "post_delay":2500,
+        "post_delay":3000,
         "next":[
             "领取忍法帖周任务",
             "点击忍法帖周活跃"
@@ -4492,10 +4390,10 @@
         "recognition":"OCR",
         "expected":"领取",
         "roi":[
-            345,
-            540,
-            905,
-            65
+            240,
+            490,
+            880,
+            100
         ],
         "action":"Click",
         "post_delay":2000,
@@ -4537,10 +4435,10 @@
         "recognition":"OCR",
         "expected":"周活跃",
         "roi":[
-            645,
-            92,
-            100,
-            38
+            30,
+            120,
+            130,
+            500
         ],
         "action":"Click",
         "post_delay":2000,
@@ -4569,19 +4467,19 @@
         "recognition":"OCR",
         "expected":"活跃度",
         "roi":[
-            375,
-            150,
-            140,
-            35
+            540,
+            120,
+            430,
+            120
         ],
         "action":"Click",
         "target":[
-            515,
-            330,
+            370,
+            290,
             10,
             10
         ],
-        "post_delay":2000,
+        "post_delay":2500,
         "next":[
             "领取周活跃一2"
         ]
@@ -4594,7 +4492,7 @@
             10,
             10
         ],
-        "post_delay":2000,
+        "post_delay":2500,
         "next":[
             "领取周活跃二1"
         ]
@@ -4603,19 +4501,19 @@
         "recognition":"OCR",
         "expected":"活跃度",
         "roi":[
-            375,
-            150,
-            140,
-            35
+            540,
+            120,
+            430,
+            120
         ],
         "action":"Click",
         "target":[
-            645,
-            355,
+            545,
+            340,
             10,
             10
         ],
-        "post_delay":2000,
+        "post_delay":2500,
         "next":[
             "领取周活跃二2"
         ]
@@ -4628,7 +4526,7 @@
             10,
             10
         ],
-        "post_delay":2000,
+        "post_delay":2500,
         "next":[
             "领取周活跃三1"
         ]
@@ -4637,19 +4535,19 @@
         "recognition":"OCR",
         "expected":"活跃度",
         "roi":[
-            375,
-            150,
-            140,
-            35
+            540,
+            120,
+            430,
+            120
         ],
         "action":"Click",
         "target":[
-            820,
-            385,
+            720,
+            360,
             10,
             10
         ],
-        "post_delay":2000,
+        "post_delay":2500,
         "next":[
             "领取周活跃三2"
         ]
@@ -4662,7 +4560,7 @@
             10,
             10
         ],
-        "post_delay":2000,
+        "post_delay":2500,
         "next":[
             "领取周活跃四1"
         ]
@@ -4671,19 +4569,19 @@
         "recognition":"OCR",
         "expected":"活跃度",
         "roi":[
-            375,
-            150,
-            140,
-            35
+            540,
+            120,
+            430,
+            120
         ],
         "action":"Click",
         "target":[
-            1005,
-            350,
+            910,
+            320,
             10,
             10
         ],
-        "post_delay":2000,
+        "post_delay":2500,
         "next":[
             "领取周活跃四2"
         ]
@@ -4696,7 +4594,7 @@
             10,
             10
         ],
-        "post_delay":2000,
+        "post_delay":2500,
         "next":[
             "领取周活跃五1"
         ]
@@ -4705,19 +4603,19 @@
         "recognition":"OCR",
         "expected":"活跃度",
         "roi":[
-            375,
-            150,
-            140,
-            35
+            540,
+            120,
+            430,
+            120
         ],
         "action":"Click",
         "target":[
-            1155,
-            385,
+            1080,
+            350,
             10,
             10
         ],
-        "post_delay":2000,
+        "post_delay":2500,
         "next":[
             "领取周活跃五2"
         ]
@@ -4730,7 +4628,7 @@
             10,
             10
         ],
-        "post_delay":2000,
+        "post_delay":2500,
         "next":[
             "点击忍法帖排行榜"
         ]
@@ -4739,15 +4637,16 @@
         "recognition":"OCR",
         "expected":"排行榜",
         "roi":[
-            930,
-            92,
-            110,
-            38
+            830,
+            640,
+            420,
+            60
         ],
         "action":"Click",
         "post_delay":2000,
         "next":[
             "忍法帖排行榜点赞",
+            "点击忍法帖排行榜",
             "退出忍法帖"
         ]
     },
@@ -4755,10 +4654,10 @@
         "recognition":"TemplateMatch",
         "template":"忍法帖排行榜点赞标识.png",
         "roi":[
-            1145,
-            210,
-            70,
-            75
+            975,
+            180,
+            125,
+            370
         ],
         "action":"Click",
         "post_delay":2000,
@@ -4779,17 +4678,33 @@
         ],
         "post_delay":2000,
         "next":[
-            "退出忍法帖"
+            "退出忍法帖点赞"
+        ]
+    },
+    "退出忍法帖点赞":{
+        "recognition":"TemplateMatch",
+        "template":"忍法帖排行榜界面.png",
+        "action":"Click",
+        "target":[
+            1230,
+            300,
+            10,
+            10
+        ],
+        "post_delay":2000,
+        "next":[
+            "退出忍法帖",
+            "退出忍法帖点赞"            
         ]
     },
     "退出忍法帖":{
         "recognition":"OCR",
         "expected":"时间",
         "roi":[
-            260,
-            670,
-            355,
-            700
+            230,
+            660,
+            420,
+            50
         ],
         "action":"Click",
         "target":[
