@@ -10,7 +10,7 @@
     "打开游戏2":{
         "action":"StartApp",
         "package":"com.tencent.KiHan",
-        "post_delay":60000,
+        "post_delay":30000,
         "timeout":120000,
         "rate_limit":5000,
         "next":[
@@ -20,8 +20,6 @@
     "检查是否登录":{
         "next":[
             "登录中",
-            "未登录1",
-            "未登录2",
             "关闭公告弹窗",
             "每日签到",
             "关闭活动弹窗",
@@ -34,8 +32,6 @@
         "action":"DoNothing",
         "next":[
             "登录中",
-            "未登录1",
-            "未登录2",
             "关闭公告弹窗",
             "每日签到",
             "关闭活动弹窗",
@@ -3819,7 +3815,7 @@
     },
     "点击小队突袭1":{
         "recognition":"OCR",
-        "expected":"小队突袭",
+        "expected":"小队",
         "roi":[
             170,
             100,
