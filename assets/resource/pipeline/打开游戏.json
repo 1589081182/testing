@@ -10,11 +10,11 @@
     "打开游戏2":{
         "action":"StartApp",
         "package":"com.tencent.KiHan",
-        "post_delay":30000,
+        "post_delay":45000,
         "timeout":120000,
         "rate_limit":5000,
         "next":[
-            "打开游戏后"     
+            "打开游戏后"
         ]
     },
     "检查是否登录":{
