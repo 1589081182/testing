@@ -1549,7 +1549,7 @@
         ],
         "post_delay":2000,
         "next":[
-            "准备点击组织"
+            "大厅待机中"
         ]
     },
     "没有接取任何集会所任务":{
@@ -2504,9 +2504,10 @@
         ],
         "post_delay":2000,
         "next":[
-            "准备点击丰饶之间"
+            "大厅待机中"
         ]
     },
+    
     "未加入组织":{
         "recognition":"TemplateMatch",
         "template":"未加入组织.png",
@@ -2519,7 +2520,7 @@
         ],
         "post_delay":2000,
         "next":[
-            "准备点击丰饶之间"
+            "大厅待机中"
         ]
     },
     "点击组织玩法":{
@@ -2878,6 +2879,161 @@
         "next":[
             "大厅待机中",
             "退出组织"
+        ]
+    },
+     "准备点击组织晓组织":{
+        "recognition":"TemplateMatch",
+        "template":"大厅标识.png",
+        "action":"Swipe",
+        "begin":[
+            230,260,10,10
+        ],
+        "end":[
+            1000,260,10,10
+        ],
+        "duration":600,
+        "post_delay":800,
+        "next":[
+            "点击组织晓组织"
+        ]
+    },
+    "点击组织晓组织":{
+        "recognition":"TemplateMatch",
+        "template":"大厅标识.png",
+        "action":"Click",
+        "post_delay":3000,
+        "target":[
+            750,
+            370,
+            10,
+            10
+        ],
+        "next":[
+            "点击组织玩法晓组织",
+            "未加入组织",
+            "未解锁组织",
+            "准备点击组织晓组织"
+        ]
+    },
+    "点击组织玩法晓组织":{
+        "recognition":"TemplateMatch",
+        "template":"组织界面标识.png",
+        "action":"Click",
+        "target":[
+            125,
+            439,
+            10,
+            10
+        ],
+        "post_delay":1500,
+        "next":[
+            "前往追击晓组织"
+        ]
+    },
+    "前往追击晓组织":{
+        "recognition":"TemplateMatch",
+        "template":"组织界面标识.png",
+        "action":"Click",
+        "target":[
+            1050,
+            605,
+            10,
+            10
+        ],
+        "post_delay":8000,
+        "next":[
+            "晓组织点击奖励",
+            "前往追击晓组织"
+        ]
+    },
+    "晓组织点击奖励":{
+        "recognition":"TemplateMatch",
+        "template":"晓组织奖励.png",
+        "action":"Click",
+        "post_delay":6000,
+        "next":[
+            "晓组织领取奖励1",
+            "晓组织领取奖励2",
+            "晓组织点击奖励"
+        ]
+    },
+    "晓组织领取奖励1":{
+        "recognition":"TemplateMatch",
+        "template":"晓组织奖励领取.png",
+        "action":"Click",
+        "post_delay":3000,
+        "next":[
+            "晓组织一键领取奖励",
+            "晓组织领取奖励2"
+        ]
+    },
+    "晓组织一键领取奖励":{
+        "recognition":"TemplateMatch",
+        "template":"晓组织一键领取奖励.png",
+        "action":"Click",
+        "post_delay":6000,
+        "next":[
+            "晓组织领取奖励2",
+            "晓组织一键领取奖励"
+        ]
+    },
+    "晓组织领取奖励2":{
+        "recognition":"TemplateMatch",
+        "template":"晓组织奖励界面标识.png",
+        "action":"Swipe",
+         "begin":[
+            400,500,10,10
+        ],
+        "end":[
+            400,200,10,10
+        ],
+        "duration":600,
+        "post_delay":3000,
+        "next":[
+            "晓组织领取奖励3",
+            "退出晓组织奖励"
+        ]
+    },
+    "晓组织领取奖励3":{
+        "recognition":"TemplateMatch",
+        "template":"晓组织奖励领取.png",
+        "action":"Click",
+        "post_delay":3000,
+        "next":[
+            "晓组织一键领取奖励",
+            "退出晓组织奖励"
+        ]
+    },
+    "退出晓组织奖励":{
+        "recognition":"TemplateMatch",
+        "template":"晓组织奖励界面标识.png",
+        "action":"Click",
+        "target":[
+            1100,
+            135,
+            10,
+            10
+        ],
+        "post_delay":4000,
+        "next":[
+            "退出追击晓组织",
+            "退出晓组织奖励"
+        ]
+    },
+    "退出追击晓组织":{
+        "recognition":"TemplateMatch",
+        "template":"晓组织奖励.png",
+        "action":"Click",
+        "target":[
+            1220,
+            35,
+            10,
+            10
+        ],
+        "post_delay":6000,
+        "next":[
+            "大厅待机中",
+            "退出追击晓组织"
         ]
     },
     "准备点击决斗场":{
@@ -3612,7 +3768,7 @@
         ],
         "post_delay":2000,
         "next":[
-            "准备点击小队突袭"
+            "大厅待机中"
         ]
     },
     "点击挑战丰饶之间":{
@@ -3843,7 +3999,7 @@
         ],
         "post_delay":2000,
         "next":[
-            "准备每日分享"
+            "大厅待机中"
         ]
     },
     "点击组织助战":{
@@ -4007,7 +4163,96 @@
             110
         ],
         "next":[
-            "退出小队突袭"
+            "领取助战收益1"
+        ]
+    },
+    "领取助战收益1":{
+        "recognition":"TemplateMatch",
+        "template":"组织助战.png",
+        "action":"Click",
+        "post_delay":3000,
+        "next":[
+            "领取助战收益2",
+            "领取助战收益1"
+        ]
+    },
+    "领取助战收益2":{
+        "recognition":"TemplateMatch",
+        "template":"我的助战.png",
+        "action":"Click",
+        "post_delay":3000,
+        "next":[
+            "领取助战收益3",
+            "领取助战收益2"
+        ]
+    },
+    "领取助战收益3":{
+        "recognition":"OCR",
+        "expected":"当前助战收益",
+        "roi":[
+            350,
+            560,
+            170,
+            60
+        ],
+        "action":"Click",
+        "target":[
+            690,
+            585,
+            10,
+            10
+        ],
+        "post_delay":3000,
+        "next":[
+            "退出我的助战"
+        ]
+    },
+    "退出我的助战":{
+        "recognition":"OCR",
+        "expected":"当前助战收益",
+        "roi":[
+            350,
+            560,
+            170,
+            60
+        ],
+        "action":"Click",
+        "target":[
+            1220,
+            36,
+            10,
+            10
+        ],
+        "post_delay":3000,
+        "next":[
+            "退出组织助战",
+            "退出我的助战"
+        ]
+    },
+    "退出组织助战":{
+        "recognition":"TemplateMatch",
+        "template":"我的助战.png",
+        "action":"Click",
+        "target":[
+            1220,
+            36,
+            10,
+            10
+        ],
+        "post_delay":3000,
+        "next":[
+            "确定退出组织助战",
+            "退出组织助战"
+        ]
+    },
+    "确定退出组织助战":{
+        "recognition":"TemplateMatch",
+        "template":"确定退出组织助战.png",
+        "action":"Click",
+        "post_delay":3000,
+        "next":[
+            "退出小队突袭",
+            "确定退出组织助战"
         ]
     },
     "退出小队突袭":{
@@ -4995,7 +5240,7 @@
         ],
         "post_delay":3000,
         "next":[
-            "点击奖励"
+            "大厅待机中"
         ]
     },
     "点击生存挑战后":{
@@ -5179,7 +5424,7 @@
         ],
         "post_delay":2000,
         "next":[
-            "点击奖励"
+            "大厅待机中"
         ]
     },
     "点击修行之路":{
@@ -5307,6 +5552,90 @@
         "next":[
             "大厅待机中",
             "退出修行之路"
+        ]
+    },
+    "准备购买组织商店":{
+        "recognition":"TemplateMatch",
+        "template":"商城标识.png",
+        "action":"Click",
+        "post_delay":3000,
+        "next":[
+            "点击玩法商店",
+            "点击商城"
+        ]
+    },
+    "点击玩法商店":{
+        "recognition":"OCR",
+        "expected":"玩法商店",
+        "roi":[
+            30,
+            148,
+            160,
+            500
+        ],
+        "action":"Click",
+        "post_delay":2000,
+        "next":[
+            "点击组织商店",
+            "点击玩法商店"
+        ]
+    },
+    "点击组织商店":{
+        "recognition":"OCR",
+        "expected":"组织商店",
+        "roi":[
+            30,
+            148,
+            160,
+            500
+        ],
+        "action":"Click",
+        "post_delay":2000,
+        "next":[
+            "购买随机忍者碎片",
+            "点击组织商店"
+        ]
+    },
+    "购买随机忍者碎片":{
+        "recognition":"OCR",
+        "expected":"组织商店说明",
+        "roi":[
+            280,
+            650,
+            180,
+            50
+        ],
+        "action":"Click",
+        "target":[
+            880,
+            345,
+            10,
+            10
+        ],
+        "post_delay":2000,
+        "next":[
+            "购买阿斯玛碎片"
+        ]
+    },
+    "购买阿斯玛碎片":{
+        "recognition":"OCR",
+        "expected":"组织商店说明",
+        "roi":[
+            280,
+            650,
+            180,
+            50
+        ],
+        "action":"Click",
+        "target":[
+            360,
+            345,
+            10,
+            10
+        ],
+        "post_delay":2000,
+        "next":[
+            "退出商城"
         ]
     },
     "FAA已完成所有任务":{
